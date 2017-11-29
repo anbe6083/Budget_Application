@@ -1,28 +1,38 @@
+* {
+  font-family: 'Avenir Next' !important;  
+}
+
 .App {
-  text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.TopBarContainer {
+  width: 100%;
+  height: 100px;
+  background: #173753;
+  position: relative;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.ToBeBudgetedContainer {
+  color: #FFFCF2;
+  width: 120px;
+  height: 63px;
+  background: #34623F;
+  border-radius: 5px;
+  display: inline-block;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
-.App-title {
-  font-size: 1.5em;
+
+
+.navBar {
+  display: inline-block;
+  position: absolute;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.navBar a{
+  text-decoration: none;
+  padding: 10px;
+  color: #FFFCF2;
 }
