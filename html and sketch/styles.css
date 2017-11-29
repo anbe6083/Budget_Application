@@ -1,0 +1,95 @@
+* {
+    font-family: "Avenir Next";
+}
+.topBarContainer {
+    width: 100%;
+    height: 100px;
+    background: #173753;
+}
+.toBeBudgeted {
+    max-width: 130px;
+    max-height: 63px;
+    background: #34623F;
+    color: #FFFCF2;
+    text-align: center;
+    top: 42px;
+}
+.row {
+   border: 1px solid #979797;
+   width: 100%;
+   position: relative;
+}
+.col {
+    width: 32%;
+}
+
+.col1 {
+    display: inline-block;
+    margin-left: 10px;
+}
+.col2 {
+    display: inline-block;
+}
+.col3 {
+    display: inline-block;
+}
+.toBeBudgetedAmount {
+    font-size: 20px;
+    color: #95BF74;
+    text-align: center;
+}
+.newCategoryContainer {
+    width: 100%;
+    height: 40px;
+    background: #FFFCF2;
+    top: 200px;
+    color: #4A4A4A;
+    font-size: 14px;
+    text-align: bottom;
+    border-top: 1px solid #979797;
+    border-left: 1px solid #979797;
+    border-right: 1px solid #979797;
+}
+
+.labelsContainer {
+    width: 100%;
+    height: 28px;
+    background: #FFFCF2;
+    display: inline-block;
+    border: 1px solid #979797;
+    
+}
+
+.labelsContainer #activityLabel {
+    position: absolute;
+    left: 0;
+    bottom:0;
+    
+}
+
+.categoryGroup {
+    width: 100%;
+    height: 40px;
+    background: #114B5F;
+    color: #FFFCF2; 
+}
+.category {
+    background: #FFFCF2;
+}
+
+.glyphicon {
+    cursor: pointer;
+}
+
+.navBar {
+    color: white;
+    position: relative;
+}
+
+#categoriesNav {
+    display: inline-block;
+}
+
+#accountNav {
+    display: inline-block;
+}
