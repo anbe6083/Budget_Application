@@ -12,6 +12,8 @@ export default class MainBody extends Component {
             <div className="mainBody">
                 <TopLabel />
                 <Transaction />
+                <Transaction />
+                <Transaction />
             </div>
         )
     }
