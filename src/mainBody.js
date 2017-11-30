@@ -8,12 +8,11 @@ export default class MainBody extends Component {
     }
 
     render() {
+        console.log('transactions in main body: ' +this.props.transactions);
         return (
             <div className="mainBody">
                 <TopLabel />
-                <Transaction />
-                <Transaction />
-                <Transaction />
+                <Transaction transactions={this.props.transactions} />
             </div>
         )
     }

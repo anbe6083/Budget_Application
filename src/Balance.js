@@ -8,7 +8,7 @@ export default class Balance extends Component {
     render() {
         return (
             <div className="BalanceContainer">
-                $4,000.00
+                {this.props.balance}
                 <br />
                 Balance
             </div>
