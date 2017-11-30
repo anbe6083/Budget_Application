@@ -22,6 +22,8 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  text-align: center;
+  padding: 5px 5px 0px 5px;
 }
 
 
@@ -35,4 +37,24 @@
   text-decoration: none;
   padding: 10px;
   color: #FFFCF2;
+}
+
+.mainBody {
+  width: 100%;
+  background: #FFFCF2;
+  color: #4A4A4A;
+  font-size: 14px;
+}
+
+.addTransactionRow {
+  color: #FFFCF2;
+  background: #114B5F;
+  height: 100px;
+  width: 100%;
+  max-height: 25px;
+  height: 25px;
+}
+
+.addTransactionRow  {
+  left: 10px;
 }

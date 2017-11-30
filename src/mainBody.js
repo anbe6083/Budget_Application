@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import AddTransactionRow from './addTransaction';
+import TopLabel from './topLabel';
 export default class MainBody extends Component {
     constructor(props) {
         super(props);
@@ -9,7 +9,7 @@ export default class MainBody extends Component {
     render() {
         return (
             <div className="mainBody">
-                <AddTransactionRow />
+                <TopLabel />
             </div>
         )
     }
