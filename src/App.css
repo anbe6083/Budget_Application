@@ -82,4 +82,12 @@
   width: 15%;
   text-align: right;
 }
+
+.transaction {
+  border-bottom: 1px solid #4A4A4A;
+}
+
+.topLabel {
+  border-bottom: 1px solid #4A4A4A;
+}
   

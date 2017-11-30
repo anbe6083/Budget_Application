@@ -6,35 +6,37 @@ export default class Transaction extends Component {
     }
 
     render() {
-        const transactions = [
-            {
-                Date: '11/29/2017',
-                Payee: 'Andrew Berumen',
-                Category: 'To Be Budgeted',
-                Outflow: '0.00',
-                Inflow: '5,000.00'
-            },
-            {
-                Date: '11/29/2017',
-                Payee: 'John Doe',
-                Category: 'Rent',
-                Outflow: '900.00',
-                Inflow: '0.00'
-            },
-            {
-                Date: '11/29/2017',
-                Payee: 'Susie Smith',
-                Category: 'Drinks',
-                Outflow: '100.00',
-                Inflow: '0.00'
-            }
-        ]
+        // const transactions = [
+        //     {
+        //         Date: '11/29/2017',
+        //         Payee: 'Andrew Berumen',
+        //         Category: 'To Be Budgeted',
+        //         Outflow: '0.00',
+        //         Inflow: '5,000.00'
+        //     },
+        //     {
+        //         Date: '11/29/2017',
+        //         Payee: 'John Doe',
+        //         Category: 'Rent',
+        //         Outflow: '900.00',
+        //         Inflow: '0.00'
+        //     },
+        //     {
+        //         Date: '11/29/2017',
+        //         Payee: 'Susie Smith',
+        //         Category: 'Drinks',
+        //         Outflow: '100.00',
+        //         Inflow: '0.00'
+        //     }
+        // ]
+
+        const transactions = this.props.transactions;
         const transactionsArr = transactions.map((transaction) => {
-            console.log('transaction.Date' + transaction.Date);
+            console.log('this.props.transactions ' + this.props.transactions);
             return (
-                <div>
+                <div className="transaction">
                     <div className='col1'>
-                        {transaction.Date}
+                        {transaction.Date.toString()}
                     </div>
                     <div className='col2'>
                         {transaction.Payee}
