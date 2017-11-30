@@ -9,7 +9,21 @@ export default class TopLabel extends Component {
     render() {
         return(
             <div>
-                TopLabel
+                <div className="col1">
+                    Date
+                </div>
+                <div className="col2">
+                    Payee
+                </div>
+                <div className="col3">
+                    Category
+                </div>
+                <div className="col4">
+                    Outflow
+                </div>
+                <div className="col5">
+                    Inflow
+                </div>
             </div>
         )
     }

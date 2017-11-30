@@ -58,3 +58,27 @@
 .addTransactionRow  {
   left: 10px;
 }
+
+.col1 {
+  display: inline-block;
+  width: 20%;
+}
+.col2 {
+  display: inline-block;
+  width: 20%;
+}
+.col3 {
+  display: inline-block;
+  width: 30%;
+}
+.col4 {
+  display: inline-block;
+  width: 15%;
+  text-align: right;
+}
+.col5 {
+  display: inline-block;
+  width: 15%;
+  text-align: right;
+}
+  
