@@ -58,7 +58,7 @@ constructor(props) {
     return (
       <Router>
         <div>
-        <Route path={'/'} component={Account_Route}>
+        <Route exact path={'/'} component={Account_Route}>
         
         </Route>
         <Route path={'/budget'} component={Budget_Route}>
