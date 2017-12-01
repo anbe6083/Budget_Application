@@ -3,6 +3,13 @@ import TopBar from './TopBar';
 import './App.css';
 import MainBody from './mainBody';
 import AddTransactionRow from './addTransaction';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
+import Account_Route from './Account_route';
+import Budget_Route from './Budget_route';
 class App extends Component {
 constructor(props) {
   super(props);
@@ -33,15 +40,35 @@ constructor(props) {
     ]
   }
 }
+  handleAddTransaction() {
+    var newTransaction = {
+      Date: new Date(),
+      Payee: 'Test Payee',
+      Category: 'Test Budget',
+      Outflow: '123.00',
+      Inflow: '456.78'
+    }
+    this.setState({
+      transactions: this.state.transactions.concat([newTransaction])
+    })
 
+  }
   render() {    
     console.log('this.state.transactions: ' +this.state.transactions);
     return (
-      <div className="App">
-        <TopBar balance={this.state.balance} />
-        <AddTransactionRow />
-        <MainBody transactions={this.state.transactions} />
-      </div>
+      <Router>
+        <div>
+        <Route path={'/'} component={Account_Route}>
+        
+        </Route>
+        <Route path={'/budget'} component={Budget_Route}>
+        </Route>
+        </div>
+        
+      </Router>
+      // <div className="App">
+      //   <Account_Route />
+      // </div>
     );
   }
 }
