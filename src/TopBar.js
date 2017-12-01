@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Balance from './Balance';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 export default class TopBar extends Component {
     constructor(props) {
         super(props);
@@ -12,8 +12,8 @@ export default class TopBar extends Component {
             <div className="TopBarContainer">
                 <div className='navBar'>
                     <ul>
-                        <li> <Link to={`/`}> Account </Link> </li>
-                        <li><Link to={`/budget`}> Budgeted Categories </Link> </li>
+                        <li> <NavLink to={`/`} exact activeStyle={{color: '#FFFCF2'}}> Account </NavLink> </li>
+                        <li><NavLink to={`/budget`} exact activeStyle={{color: '#FFFCF2'}}> Budgeted Categories </NavLink> </li>
                     </ul>
                     {/* <a href='#'>Budgeted Categories</a>
                     <a href='#'>Account</a> */}

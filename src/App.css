@@ -46,6 +46,10 @@
   display: inline;
 }
 
+Link {
+  color: white;
+}
+
 .mainBody {
   width: 100%;
   background: #FFFCF2;
