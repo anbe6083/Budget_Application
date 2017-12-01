@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import TopLabel from './topLabel';
-import Category from './category';
+import CategoryGroups from './category_groups';
 export default class MainBudgetBody extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +11,7 @@ export default class MainBudgetBody extends Component {
         return (
             <div className="mainBody">
                 <TopLabel />
-                <Category />
+                <CategoryGroups categoryGroups={this.props.categoryGroups}/>
             </div>
         )
     }

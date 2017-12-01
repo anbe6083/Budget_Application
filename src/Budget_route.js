@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import TopBar from './TopBar';
 import AddCategoryBar from './addCategory';
 import TopLabel from './topLabel';
-import Category from './category'; 
+import categoryGroups from './category_groups'; 
 import MainBudgetBody from './mainBudgetBody';
 export default class Budget_Route extends Component {
     constructor(props) {
@@ -52,7 +52,7 @@ export default class Budget_Route extends Component {
             <div>
                 <TopBar label={"To Be Budgeted"} />
                 <AddCategoryBar />
-                <MainBudgetBody />
+                <MainBudgetBody categoryGroups={this.state.categoryGroups} />
             </div>
         )
     }
