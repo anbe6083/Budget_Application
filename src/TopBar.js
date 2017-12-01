@@ -13,7 +13,7 @@ export default class TopBar extends Component {
                     <a href='#'>Budgeted Categories</a>
                     <a href='#'>Account</a>
                 </div>
-                <Balance balance={this.props.balance}/>
+                <Balance balance={this.props.balance} label={this.props.label}/>
 
             </div>
         )

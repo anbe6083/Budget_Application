@@ -10,7 +10,7 @@ export default class Balance extends Component {
             <div className="BalanceContainer">
                 {this.props.balance}
                 <br />
-                Balance
+                {this.props.label}
             </div>
         )
     }

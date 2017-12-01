@@ -8,7 +8,7 @@ export default class AddTransactionRow extends Component {
     render() {
         return (
             <div className='addTransactionRow'>
-                <button id="addCategoryBtn" type="button">Add A Transaction</button>
+                <button id="addTransactionBtn" type="button">Add A Transaction</button>
             </div>
         )
     }

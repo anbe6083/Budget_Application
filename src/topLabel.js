@@ -8,7 +8,7 @@ export default class TopLabel extends Component {
 
     render() {
         return(
-            <div>
+            <div className="topLabel">
                 <div className="col1">
                     Date
                 </div>

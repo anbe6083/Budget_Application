@@ -51,7 +51,7 @@ constructor(props) {
     console.log('this.state.transactions: ' +this.state.transactions);
     return (
       <div className="App">
-        <TopBar balance={this.state.balance} />
+        <TopBar balance={this.state.balance} label={"Balance"} />
         <AddTransactionRow handleAddTransaction={this.handleAddTransaction}/>
         <MainBody transactions={this.state.transactions} />
       </div>
