@@ -24,19 +24,26 @@
   left: 10px;
   text-align: center;
   padding: 5px 5px 0px 5px;
+  border: solid 1px white;
 }
 
 
 
 .navBar {
   display: inline-block;
-  position: absolute;
+  border: 1px solid white;
+  float: right;
+  color: #FFFCF2;
+  
 }
 
-.navBar a{
-  text-decoration: none;
+.navBar ul {
+  list-style-type: none;
+}
+.navBar li{
   padding: 10px;
   color: #FFFCF2;
+  display: inline;
 }
 
 .mainBody {
