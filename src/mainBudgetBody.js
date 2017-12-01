@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TopLabel from './topLabel';
 import CategoryGroups from './category_groups';
+import Categories from './categories';
 export default class MainBudgetBody extends Component {
     constructor(props) {
         super(props);

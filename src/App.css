@@ -102,7 +102,7 @@
   width: 100%;
 }
   
-.category {
+.categoryGroup {
   font-size: 14px;
   width: 100%;
   background: #114B5F;
@@ -110,4 +110,9 @@
 }
 .categoryGroupDiv {
   border: 1px solid #FFFCF2;
+}
+
+.category {
+  background: #FFFCF2;
+  color: #4A4A4A;
 }

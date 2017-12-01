@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import TopBar from './TopBar';
 import './App.css';
-import MainBody from './mainBody';
-import AddTransactionRow from './addTransaction';
 import {
   BrowserRouter as Router,
   Route,
