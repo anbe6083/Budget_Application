@@ -49,7 +49,6 @@ export default class Budget_Route extends Component {
     }
 
     handleAddCategory(categoryGroup) {
-        alert(categoryGroup);
         this.setState({
             categoryGroups: this.state.categoryGroups.concat([
                 {

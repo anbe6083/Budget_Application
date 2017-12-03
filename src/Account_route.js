@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopBar from './TopBar';
 import './App.css';
-import MainBody from './mainBody';
+import MainAccountBody from './mainAccountBody';
 import AddTransactionRow from './addTransaction';
 import {Router, Route} from 'react-router';
 class Account_Route extends Component {
@@ -53,7 +53,7 @@ constructor(props) {
       <div className="App">
         <TopBar balance={this.state.balance} label={"Balance"} />
         <AddTransactionRow handleAddTransaction={this.handleAddTransaction}/>
-        <MainBody transactions={this.state.transactions} />
+        <MainAccountBody transactions={this.state.transactions} />
       </div>
     );
   }

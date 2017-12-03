@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TopLabel from './topLabel';
 import Transaction from './transaction';
-export default class MainBody extends Component {
+export default class MainAccountBody extends Component {
     constructor(props) {
         super(props);
     }

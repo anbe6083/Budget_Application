@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopBar from './TopBar';
 import './App.css';
-import MainBody from './mainBody';
+import MainAccountBody from './mainAccountBody';
 import AddTransactionRow from './addTransaction';
 class App extends Component {
   render() {    
@@ -9,7 +9,7 @@ class App extends Component {
       <div className="App">
         <TopBar />
         <AddTransactionRow />
-        <MainBody />
+        <MainAccountBody />
       </div>
     );
   }
