@@ -4,6 +4,7 @@ import AddCategoryBar from './addCategory';
 import TopLabel from './topLabel';
 import categoryGroups from './category_groups'; 
 import MainBudgetBody from './mainBudgetBody';
+import Modal from 'react-responsive-modal';
 export default class Budget_Route extends Component {
     constructor(props) {
         super(props);
@@ -51,7 +52,7 @@ export default class Budget_Route extends Component {
         return (
             <div>
                 <TopBar label={"To Be Budgeted"} />
-                <AddCategoryBar />
+                <AddCategoryBar  />
                 <MainBudgetBody categoryGroups={this.state.categoryGroups} />
             </div>
         )
