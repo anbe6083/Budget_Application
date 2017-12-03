@@ -8,7 +8,6 @@ export default class Transaction extends Component {
     render() {
         const transactions = this.props.transactions;
         const transactionsArr = transactions.map((transaction) => {
-            console.log('this.props.transactions ' + this.props.transactions);
             return (
                 <div className="transaction">
                     <div className='col1'>
@@ -30,7 +29,6 @@ export default class Transaction extends Component {
 
             )
         });
-        console.log('transactionsArr ' + transactionsArr);
         return (
             <div>
                 {transactionsArr}

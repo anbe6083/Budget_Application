@@ -33,22 +33,21 @@ constructor(props) {
       }
     ]
   }
+  this.handleAddTransaction = this.handleAddTransaction.bind(this);
 }
-  handleAddTransaction() {
+  handleAddTransaction(newTransactionObj) {
     var newTransaction = {
-      Date: new Date(),
-      Payee: 'Test Payee',
-      Category: 'Test Budget',
-      Outflow: '123.00',
-      Inflow: '456.78'
+      Date: newTransactionObj.date,
+      Payee: newTransactionObj.Payee,
+      Category: newTransactionObj.Category,
+      Outflow: newTransactionObj.Outflow,
+      Inflow: newTransactionObj.Inflow
     }
-    this.setState({
-      transactions: this.state.transactions.concat([newTransaction])
-    })
+    this.setState({transactions: this.state.transactions.concat([newTransaction])});
+    
 
   }
   render() {    
-    console.log('this.state.transactions: ' +this.state.transactions);
     return (
       <div className="App">
         <TopBar balance={this.state.balance} label={"Balance"} />

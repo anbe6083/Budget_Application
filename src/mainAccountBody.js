@@ -8,7 +8,6 @@ export default class MainAccountBody extends Component {
     }
 
     render() {
-        console.log('transactions in main body: ' +this.props.transactions);
         return (
             <div className="mainBody">
                 <TopLabel />
