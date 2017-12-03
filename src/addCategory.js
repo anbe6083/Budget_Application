@@ -5,9 +5,18 @@ export default class AddCategoryBar extends Component {
     constructor(props){
         super(props);
         this.state = {
-            open: false
+            open: false,
+            category_group: ''
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    handleChange(event) {
+        console.log(this.state.category_group);
+        this.setState({category_group: event.target.value});
+      }
 
     onOpenModal = () => {
         console.log('open modal');
@@ -18,6 +27,10 @@ export default class AddCategoryBar extends Component {
         this.setState({ open: false });
     };
 
+    handleSubmit = () => {
+        this.props.handleAddCategory(this.state.category_group);
+      }
+
     render() {
         const {open} = this.state;
         return (
@@ -25,9 +38,10 @@ export default class AddCategoryBar extends Component {
                 <button id="addCategoryBtn" onClick={this.onOpenModal} type="button">Add A Category Group</button>
                 <Modal open={open} onClose={this.onCloseModal} >
                     <h2>Add a Category Group</h2>
-                    Category Group: <input type='text' name="category-group"/> <br />
+                        Category Group: <input type='text' name="category_group" value={this.state.category_group} onChange={this.handleChange}/> <br />
+                        <button type='button' onClick={this.handleSubmit}>Submit</button>                    
                 </Modal>
             </div>
-        )
+        );
     }
 }
