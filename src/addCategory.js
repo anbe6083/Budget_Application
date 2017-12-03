@@ -29,6 +29,7 @@ export default class AddCategoryBar extends Component {
 
     handleSubmit = () => {
         this.props.handleAddCategory(this.state.category_group);
+        this.onCloseModal();
       }
 
     render() {
