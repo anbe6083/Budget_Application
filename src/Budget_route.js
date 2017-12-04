@@ -5,7 +5,11 @@ import TopLabel from './topLabel';
 import categoryGroups from './category_groups';
 import MainBudgetBody from './mainBudgetBody';
 import Modal from 'react-responsive-modal';
+
+//Description: This class holds the state and is the main router for the Budget tab. 
+//A user can add budget categories, subcategories and specify amounts that should be budgeted in each category
 export default class Budget_Route extends Component {
+    
     constructor(props) {
         super(props);
         this.state = {
