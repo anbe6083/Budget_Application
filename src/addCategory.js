@@ -15,7 +15,7 @@ export default class AddCategoryBar extends Component {
 
     handleChange(event) {
         console.log(this.state.category_group);
-        this.setState({category_group: event.target.value});
+        this.setState({[event.target.name]: event.target.value});
       }
 
     onOpenModal = () => {
@@ -30,11 +30,12 @@ export default class AddCategoryBar extends Component {
     handleSubmit = () => {
         this.props.handleAddCategory(this.state.category_group);
         this.onCloseModal();
-      }
+    }
 
     render() {
         const {open} = this.state;
         return (
+            // Returns the div that includes a button that the user can add a new category group
             <div className='addCategoryRow'>
                 <button id="addCategoryBtn" onClick={this.onOpenModal} type="button">Add A Category Group</button>
                 <Modal open={open} onClose={this.onCloseModal} >
