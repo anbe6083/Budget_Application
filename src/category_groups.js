@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-responsive-modal';
-
+import AddSubcategory from './add_subcategory';
 export default class CategoryGroups extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +27,7 @@ export default class CategoryGroups extends Component {
     //Changes the parents state (Parent component is: Budget_Route)
     handleSubmit = (categoryGroup) => {
         console.log('categoryGroup' +categoryGroup);
-        this.props.handleAddSubcategory(this.state, categoryGroup );
+        this.props.handleAddSubcategory(this.state, categoryGroup.groupName );
         this.onCloseModal();
     }
 
@@ -36,10 +36,9 @@ export default class CategoryGroups extends Component {
         //categoryGroups is from the parent component Budget_Route. It is part of the state. 
         const categoryGroups = this.props.categoryGroups;
         const categoryGroupsArr = categoryGroups.map((categoryGroup) => {
-            console.log(categoryGroup);
             return (
-                <div className = 'categoryGroupContainer'>
-                    <div className="categoryGroupDiv" key={categoryGroup.groupName}>
+                <div className = 'categoryGroupContainer' key={categoryGroup.groupName}>
+                    <div className="categoryGroupDiv" >
                         <div className="col1"></div>
                         <div className="col2"></div>
                         <div className='col3'>
@@ -48,13 +47,7 @@ export default class CategoryGroups extends Component {
                             handleChange(event) changes the state of each input. handleSubmit changes the parent component's
                             state. The parent component is Budget_Route
                             */}
-                            <button type='button' onClick={this.onOpenModal}> + </button>
-                            <Modal open={open} onClose={this.onCloseModal} >
-                                <h2>Add a New Subcategory</h2>
-                                Subcategory: <input type='text' name='Subcategory' onChange={this.handleChange} /> <br />
-                                Budget: <input type='number' name="Budget" onChange={this.handleChange} /> <br />
-                                <button type='button' onClick={() => this.handleSubmit(categoryGroup.groupName)}>Submit</button> 
-                            </Modal>
+                            <AddSubcategory open={open} categoryGroup={categoryGroup} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
                         </div>
                         <div className='col4'>
                             {/* How much money has been spent in all of the subcategories */}
@@ -69,7 +62,7 @@ export default class CategoryGroups extends Component {
                         {categoryGroup.subcategories.map((subcategory) => {
                             return (
                                 //maps a div to each subcategory
-                                <div className="subcategory">
+                                <div className="subcategory" key={subcategory.category}>
                                     <div className='col1'>
                                     </div>
                                     <div className='col2'>

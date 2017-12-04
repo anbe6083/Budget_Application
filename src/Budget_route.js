@@ -56,7 +56,7 @@ export default class Budget_Route extends Component {
     handleAddCategory(categoryGroup) {
         this.setState((prevState, props) => {
             return {
-                categoryGroups: this.state.categoryGroups.concat([
+                categoryGroups: prevState.categoryGroups.concat([
                     {
                         groupName: categoryGroup,
                         budgeted: '0.00',
@@ -70,24 +70,32 @@ export default class Budget_Route extends Component {
     //Description: Concatenates a new subcategory underneath the category group. Called from
     //the CategoryGroups component in MainBudgetBody
     //TODO
-    handleAddSubcategory(newSubcategoryObj, categoryName) {
-        console.log('this.state.categoryGroups ' + JSON.stringify(this.state.categoryGroups));
-        this.setState((prevState, props) => {
-            categoryGroups: prevState.categoryGroups.map( categoryGroup => {
-                if(categoryGroup.groupName === categoryName) {
-                    return categoryGroup.subcategories.concat(
-                        {
-                            category: newSubcategoryObj.Subcategory,
-                            budgeted: newSubcategoryObj.Budget,
-                            activity: 0
+    handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
+        console.log('newSubcategoryCategoryGroup ' +newSubcategoryCategoryGroup);
+        return this.setState((prevState, props) => {
+            return {
+                categoryGroups: prevState.categoryGroups.map( (categoryGroup) => {
+                    if(categoryGroup.groupName === newSubcategoryCategoryGroup) {
+                        console.log('categoryGroup.groupName ' +categoryGroup.groupName);
+                        return {
+                            groupName: categoryGroup.groupName,
+                            budgeted: categoryGroup.budgeted,
+                            activity: categoryGroup.groupName.activity,
+                            subcategories: categoryGroup.subcategories.concat(
+                                {
+                                    category: newSubcategoryObj.Subcategory,
+                                    budgeted: newSubcategoryObj.Budget,
+                                    activity: '0.00'
+                                }
+                            )
                         }
-                    )
-                }
-            } )
+                    } else {
+                        return categoryGroup;
+                    }
+                } )
+            }
         })
-        console.log('state is now: ' +(this.state.categoryGroups))
-
-
+        console.log('state is now: ' +this.state);
     }
 
 
