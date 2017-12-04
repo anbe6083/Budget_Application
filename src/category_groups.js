@@ -4,12 +4,6 @@ import AddSubcategory from './add_subcategory';
 export default class CategoryGroups extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            open: false,
-            Subcategory: '',
-            Budget: 0
-        }
-        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     //Description: Switched the state of 'open' so the modal knows when to open
@@ -25,14 +19,13 @@ export default class CategoryGroups extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
     //Changes the parents state (Parent component is: Budget_Route)
-    handleSubmit = (categoryGroup) => {
+    handleSubmit = (state, categoryGroup) => {
         console.log('categoryGroup' +categoryGroup);
-        this.props.handleAddSubcategory(this.state, categoryGroup.groupName );
+        this.props.handleAddSubcategory(state, categoryGroup );
         this.onCloseModal();
     }
 
     render() {
-        const { open } = this.state;
         //categoryGroups is from the parent component Budget_Route. It is part of the state. 
         const categoryGroups = this.props.categoryGroups;
         const categoryGroupsArr = categoryGroups.map((categoryGroup) => {
@@ -47,7 +40,7 @@ export default class CategoryGroups extends Component {
                             handleChange(event) changes the state of each input. handleSubmit changes the parent component's
                             state. The parent component is Budget_Route
                             */}
-                            <AddSubcategory open={open} categoryGroup={categoryGroup} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
+                            <AddSubcategory  categoryGroup={categoryGroup} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
                         </div>
                         <div className='col4'>
                             {/* How much money has been spent in all of the subcategories */}

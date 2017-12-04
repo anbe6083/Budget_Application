@@ -4,8 +4,12 @@ export default class AddSubcategory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false
+            open: false,
+            Subcategory: '',
+            Budget: 0
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     //Description: Switched the state of 'open' so the modal knows when to open
@@ -20,16 +24,24 @@ export default class AddSubcategory extends Component {
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
     }
+
+    //Changes the parents state (Parent component is: Budget_Route)
+    handleSubmit = (categoryGroup) => {
+        this.props.handleSubmit(this.state, categoryGroup.groupName);
+        this.onCloseModal();
+    }
+
+    
     render() {
         const { open } = this.state;
         return (
             <div className='add-subcategory'>
                 <button type='button' onClick={this.onOpenModal}> + </button>
                 <Modal open={open} onClose={this.onCloseModal} >
-                    <h2>Add a New Subcategory</h2>
-                    Subcategory: <input type='text' name='Subcategory' onChange={this.props.handleChange} /> <br />
-                    Budget: <input type='number' name="Budget" onChange={this.props.handleChange} /> <br />
-                    <button type='button' onClick={() => this.props.handleSubmit(this.props.categoryGroup)}>Submit</button>
+                    <h2>Add a New Subcategory </h2>
+                    Subcategory: <input type='text' name='Subcategory' onChange={this.handleChange} /> <br />
+                    Budget: <input type='number' name="Budget" onChange={this.handleChange} /> <br />
+                    <button type='button' onClick={() => this.handleSubmit(this.props.categoryGroup)}>Submit</button>
                 </Modal>
             </div>
         )
