@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Modal from 'react-responsive-modal';
+
+//Description: This class allows the user to add a new transaction
 export default class AddTransactionRow extends Component {
     constructor(props) {
         super(props);

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Modal from 'react-responsive-modal';
 
+
+//Description: This class allows the user to add a new Category group, which is concatenated to Budget_Route's state
+//Each category group has an array of subcategories
+
 export default class AddCategoryBar extends Component {
     constructor(props){
         super(props);

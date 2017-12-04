@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
+
+//Description: Allows the user to see their to be budgeted amount in the Budget tab,
+//or their balance in the account tab
 export default class Balance extends Component {
     constructor(props) {
         super(props)
