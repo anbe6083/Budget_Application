@@ -1,0 +1,24 @@
+import React, {Component} from 'react';
+
+export default class TopBudgetLabel extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+        return(
+            <div className="topLabel">
+                <div className="budget-col1">
+                    Category
+                </div>
+                <div className="budget-col2">
+                    Outflow
+                </div>
+                <div className="budget-col3">
+                    Inflow
+                </div>
+            </div>
+        )
+    }
+}

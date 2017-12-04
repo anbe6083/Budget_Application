@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TopLabel from './topLabel';
+import TopBudgetLabel from './topBudgetLabel';
 import CategoryGroups from './category_groups';
 
 //Description: This is the main body for the budgeted tab. Includes a TopLabel with Date,Payee,Category,Outflow, and Inflow
@@ -13,7 +13,7 @@ export default class MainBudgetBody extends Component {
     render() {
         return (
             <div className="mainBody">
-                <TopLabel />
+                <TopBudgetLabel />
                 <CategoryGroups categoryGroups={this.props.categoryGroups} handleAddSubcategory={this.props.handleAddSubcategory}/>
             </div>
         )

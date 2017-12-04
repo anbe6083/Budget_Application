@@ -32,9 +32,7 @@ export default class CategoryGroups extends Component {
             return (
                 <div className = 'categoryGroupContainer' key={categoryGroup.groupName}>
                     <div className="categoryGroupDiv" >
-                        <div className="col1"></div>
-                        <div className="col2"></div>
-                        <div className='col3'>
+                        <div className='budget-col1'>
                             {categoryGroup.groupName}
                             {/* This button is for the user to add a new subcategory underneath each Category Group.
                             handleChange(event) changes the state of each input. handleSubmit changes the parent component's
@@ -42,11 +40,11 @@ export default class CategoryGroups extends Component {
                             */}
                             <AddSubcategory  categoryGroup={categoryGroup} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
                         </div>
-                        <div className='col4'>
+                        <div className='budget-col2'>
                             {/* How much money has been spent in all of the subcategories */}
                             {categoryGroup.activity}
                         </div>
-                        <div className='col5'>
+                        <div className='budget-col3'>
                             {/* User specified amount of budgeted money in all of the subcategories */}
                             {categoryGroup.budgeted}
                         </div>
@@ -56,19 +54,15 @@ export default class CategoryGroups extends Component {
                             return (
                                 //maps a div to each subcategory
                                 <div className="subcategory" key={subcategory.category}>
-                                    <div className='col1'>
-                                    </div>
-                                    <div className='col2'>
-                                    </div>
-                                    <div className='col3'>
+                                    <div className='budget-col1'>
                                         {/* User specified category */}
                                         {subcategory.category}
                                     </div>
-                                    <div className='col4'>
+                                    <div className='budget-col2'>
                                         {/* How much money has been spent in each subcategory */}
                                         {subcategory.activity}
                                     </div>
-                                    <div className='col5'>
+                                    <div className='budget-col3'>
                                         {/* User specified budget */}
                                         {subcategory.budgeted}
                                     </div>
