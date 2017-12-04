@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Categories from './categories';
 import Modal from 'react-responsive-modal';
 
 export default class CategoryGroups extends Component {
