@@ -35,6 +35,9 @@ constructor(props) {
   }
   this.handleAddTransaction = this.handleAddTransaction.bind(this);
 }
+
+  //Description: Sets the new state when the user inputs a new transaction in the AddTransactionRow component.
+  //Takes input from the AddTransactionRow modal
   handleAddTransaction(newTransactionObj) {
     var newTransaction = {
       Date: newTransactionObj.date,
@@ -44,8 +47,6 @@ constructor(props) {
       Inflow: newTransactionObj.Inflow
     }
     this.setState({transactions: this.state.transactions.concat([newTransaction])});
-    
-
   }
   render() {    
     return (

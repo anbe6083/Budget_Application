@@ -46,8 +46,9 @@ export default class Budget_Route extends Component {
                 }
             ]
         }
+        this.handleAddSubcategory = this.handleAddSubcategory.bind(this);
     }
-
+    //Description: Called whenever the user inputs data from the modal in the AddCategoryBar component
     handleAddCategory(categoryGroup) {
         this.setState({
             categoryGroups: this.state.categoryGroups.concat([
@@ -60,6 +61,14 @@ export default class Budget_Route extends Component {
             ])
         });
     }
+    //Description: Concatenates a new subcategory underneath the category group. Called from
+    //the CategoryGroups component in MainBudgetBody
+    //TODO
+    handleAddSubcategory(newSubcategoryObj, categoryName) {
+        console.log('this.state.categoryGroups ' + JSON.stringify(this.state.categoryGroups));
+
+
+    }
 
 
     render() {
@@ -67,7 +76,7 @@ export default class Budget_Route extends Component {
             <div>
                 <TopBar label={"To Be Budgeted"} />
                 <AddCategoryBar handleAddCategory={this.handleAddCategory.bind(this)} />
-                <MainBudgetBody categoryGroups={this.state.categoryGroups} />
+                <MainBudgetBody categoryGroups={this.state.categoryGroups} handleAddSubcategory={this.handleAddSubcategory} />
             </div>
         )
     }
