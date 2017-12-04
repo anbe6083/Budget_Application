@@ -25,8 +25,9 @@ export default class CategoryGroups extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
     //Changes the parents state (Parent component is: Budget_Route)
-    handleSubmit = (groupName) => {
-        this.props.handleAddSubcategory(this.state);
+    handleSubmit = (categoryGroup) => {
+        console.log('categoryGroup' +categoryGroup);
+        this.props.handleAddSubcategory(this.state, categoryGroup );
         this.onCloseModal();
     }
 
@@ -35,8 +36,9 @@ export default class CategoryGroups extends Component {
         //categoryGroups is from the parent component Budget_Route. It is part of the state. 
         const categoryGroups = this.props.categoryGroups;
         const categoryGroupsArr = categoryGroups.map((categoryGroup) => {
+            console.log(categoryGroup);
             return (
-                <div>
+                <div className = 'categoryGroupContainer'>
                     <div className="categoryGroupDiv" key={categoryGroup.groupName}>
                         <div className="col1"></div>
                         <div className="col2"></div>
@@ -51,7 +53,7 @@ export default class CategoryGroups extends Component {
                                 <h2>Add a New Subcategory</h2>
                                 Subcategory: <input type='text' name='Subcategory' onChange={this.handleChange} /> <br />
                                 Budget: <input type='number' name="Budget" onChange={this.handleChange} /> <br />
-                                <button type='button' onClick={this.handleSubmit}>Submit</button> 
+                                <button type='button' onClick={() => this.handleSubmit(categoryGroup.groupName)}>Submit</button> 
                             </Modal>
                         </div>
                         <div className='col4'>

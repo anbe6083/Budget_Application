@@ -54,15 +54,17 @@ export default class Budget_Route extends Component {
     }
     //Description: Called whenever the user inputs data from the modal in the AddCategoryBar component
     handleAddCategory(categoryGroup) {
-        this.setState({
-            categoryGroups: this.state.categoryGroups.concat([
-                {
-                    groupName: categoryGroup,
-                    budgeted: '0.00',
-                    activity: '0.00',
-                    subcategories: []
-                }
-            ])
+        this.setState((prevState, props) => {
+            return {
+                categoryGroups: this.state.categoryGroups.concat([
+                    {
+                        groupName: categoryGroup,
+                        budgeted: '0.00',
+                        activity: '0.00',
+                        subcategories: []
+                    }
+                ])
+            }
         });
     }
     //Description: Concatenates a new subcategory underneath the category group. Called from
@@ -70,6 +72,20 @@ export default class Budget_Route extends Component {
     //TODO
     handleAddSubcategory(newSubcategoryObj, categoryName) {
         console.log('this.state.categoryGroups ' + JSON.stringify(this.state.categoryGroups));
+        this.setState((prevState, props) => {
+            categoryGroups: prevState.categoryGroups.map( categoryGroup => {
+                if(categoryGroup.groupName === categoryName) {
+                    return categoryGroup.subcategories.concat(
+                        {
+                            category: newSubcategoryObj.Subcategory,
+                            budgeted: newSubcategoryObj.Budget,
+                            activity: 0
+                        }
+                    )
+                }
+            } )
+        })
+        console.log('state is now: ' +(this.state.categoryGroups))
 
 
     }
