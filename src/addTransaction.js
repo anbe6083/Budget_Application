@@ -22,7 +22,7 @@ export default class AddTransactionRow extends Component {
     onCloseModal = () => {
         this.setState({ open: false });
     };
-
+    //handles any input change
     handleChange(event, stateName) {
         this.setState({[event.target.name]: event.target.value});
     }

@@ -12,7 +12,7 @@ export default class AddCategoryBar extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    //handles any input changes
     handleChange(event) {
         console.log(this.state.category_group);
         this.setState({[event.target.name]: event.target.value});
@@ -26,7 +26,7 @@ export default class AddCategoryBar extends Component {
     onCloseModal = () => {
         this.setState({ open: false });
     };
-
+    //Description: Concatenates a new category group in Budget_Route's state. 
     handleSubmit = () => {
         this.props.handleAddCategory(this.state.category_group);
         this.onCloseModal();
