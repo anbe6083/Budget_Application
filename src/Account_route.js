@@ -10,57 +10,13 @@ import {Router, Route} from 'react-router';
 class Account_Route extends Component {
 constructor(props) {
   super(props);
-  this.state = {
-    transactions: [
-      {
-        Date: new Date(),
-        Payee: 'Andrew Berumen',
-        Category: 'To Be Budgeted',
-        Outflow: '0.00',
-        Inflow: '5,000.00'
-      },
-      {
-        Date: new Date(),
-        Payee: 'John Doe',
-        Category: 'Rent',
-        Outflow: '900.00',
-        Inflow: '0.00'
-      },
-      {
-        Date: new Date(),
-        Payee: 'Susie Smith',
-        Category: 'Drinks',
-        Outflow: '100.00',
-        Inflow: '0.00'
-      }
-    ]
-  }
-  this.handleAddTransaction = this.handleAddTransaction.bind(this);
 }
-
-  //Description: Sets the new state when the user inputs a new transaction in the AddTransactionRow component.
-  //Takes input from the AddTransactionRow modal
-  handleAddTransaction(newTransactionObj) {
-    var newTransaction = {
-      Date: newTransactionObj.date,
-      Payee: newTransactionObj.Payee,
-      Category: newTransactionObj.Category,
-      Outflow: newTransactionObj.Outflow,
-      Inflow: newTransactionObj.Inflow
-    }
-    this.setState( (prevState, props) => {
-      return {
-        transactions: this.state.transactions.concat([newTransaction])
-      }
-    });
-    this.props.handleChangeBalance(newTransactionObj);
-  }
   render() {    
     return (
       <div className="App">
         <TopBar balance={this.props.balance} label={"Balance"} />
-        <AddTransactionRow handleAddTransaction={this.handleAddTransaction}/>
-        <MainAccountBody transactions={this.state.transactions} />
+        <AddTransactionRow handleAddTransaction={this.props.handleAddTransaction}/>
+        <MainAccountBody transactions={this.props.transactions} />
       </div>
     );
   }
