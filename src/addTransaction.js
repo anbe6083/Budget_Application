@@ -12,7 +12,8 @@ export default class AddTransactionRow extends Component {
             Payee: '',
             Inflow: '',
             Outflow: '',
-            Category: ''
+            Category: '',
+            value: 'food'
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -26,6 +27,7 @@ export default class AddTransactionRow extends Component {
     };
     //handles any input change
     handleChange(event, stateName) {
+        console.log('[event.target.name] ' +[event.target.name]);
         this.setState({ [event.target.name]: event.target.value });
     }
 
@@ -47,13 +49,18 @@ export default class AddTransactionRow extends Component {
                     Payee: <input type='text' name="Payee" onChange={this.handleChange} /> <br />
                     Inflow: <input type='text' name="Inflow" onChange={this.handleChange} /><br />
                     Outflow: <input type='text' name="Outflow" onChange={this.handleChange} /><br />
-                    Category: <input type='text' name="Category" onChange={this.handleChange} /><br />
-                    <select>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                    <select onChange={this.handleChange} name="value" value={this.state.value} >
+                        {this.props.categoryGroups.map(categoryGroup => {
+                            {
+                                return categoryGroup.subcategories.map(subcategory => {
+                                    return (
+                                        <option value={subcategory.category} >{subcategory.category}</option>
+                                    )
+                                })
+                            }
+                        })}
                     </select>
+
                     <button type='button' onClick={this.handleSubmit}>Submit</button>
                 </Modal>
             </div>

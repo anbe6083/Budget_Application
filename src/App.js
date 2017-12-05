@@ -47,16 +47,16 @@ class App extends Component {
             budgeted: '0.00',
             activity: '0.00',
             subcategories: [
-                // {
-                //     category: 'food',
-                //     budgeted: '500.00',
-                //     activity: '300.76'
-                // },
-                // {
-                //     category: 'rent',
-                //     budgeted: '1000.00',
-                //     activity: '1000.00'
-                // }
+                {
+                    category: 'food',
+                    budgeted: '500.00',
+                    activity: '300.76'
+                },
+                {
+                    category: 'rent',
+                    budgeted: '1000.00',
+                    activity: '1000.00'
+                }
             ]
         },
         {
@@ -64,16 +64,16 @@ class App extends Component {
             budgeted: '0.00',
             activity: '0.00',
             subcategories: [
-                // {
-                //     category: 'Car Insurance',
-                //     budgeted: '60.00',
-                //     activity: '60.00'
-                // },
-                // {
-                //     category: 'Gas',
-                //     budgeted: '100.00',
-                //     activity: '34.50'
-                // }
+                {
+                    category: 'Car Insurance',
+                    budgeted: '60.00',
+                    activity: '60.00'
+                },
+                {
+                    category: 'Gas',
+                    budgeted: '100.00',
+                    activity: '34.50'
+                }
             ]
         }
     ]
@@ -162,7 +162,7 @@ handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
     var newTransaction = {
       Date: newTransactionObj.date,
       Payee: newTransactionObj.Payee,
-      Category: newTransactionObj.Category,
+      Category: newTransactionObj.value,
       Outflow: newTransactionObj.Outflow,
       Inflow: newTransactionObj.Inflow
     }
@@ -179,7 +179,7 @@ handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
     return (
       <Router>
         <div>
-          <Route exact path={'/'} render={() => (<Account_Route transactions = {this.state.transactions} balance={this.state.balance} 
+          <Route exact path={'/'} render={() => (<Account_Route categoryGroups={this.state.categoryGroups} transactions = {this.state.transactions} balance={this.state.balance} 
           handleChangeBalance={this.handleChangeBalance} handleAddTransaction={this.handleAddTransaction} />)}>
 
           </Route>
