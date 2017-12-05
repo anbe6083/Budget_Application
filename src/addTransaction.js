@@ -10,8 +10,8 @@ export default class AddTransactionRow extends Component {
             open: false,
             date: '',
             Payee: '',
-            Inflow: '',
-            Outflow: '',
+            Inflow: '0',
+            Outflow: '0',
             Category: '',
             value: 'food'
         }
@@ -51,13 +51,12 @@ export default class AddTransactionRow extends Component {
                     Outflow: <input type='text' name="Outflow" onChange={this.handleChange} /><br />
                     <select onChange={this.handleChange} name="value" value={this.state.value} >
                         {this.props.categoryGroups.map(categoryGroup => {
-                            {
+                            console.log(this.props);
                                 return categoryGroup.subcategories.map(subcategory => {
                                     return (
                                         <option value={subcategory.category} >{subcategory.category}</option>
                                     )
                                 })
-                            }
                         })}
                     </select>
 

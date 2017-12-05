@@ -83,38 +83,33 @@ class App extends Component {
     this.handleAddTransaction = this.handleAddTransaction.bind(this);
     this.handleAddSubcategory = this.handleAddSubcategory.bind(this);    
     this.handleAddCategory = this.handleAddCategory.bind(this);
+    this.handleChangeSubcategoryBalance = this.handleChangeSubcategoryBalance.bind(this);
   }
 
   handleChangeToBeBudgeted( newSubcategoryObj ) {
-    this.setState((oldState, props) => {
-      return {
+    this.setState((oldState, props) => ({
         ToBeBudgeted: {
           groupName: oldState.groupName,
           budgeted: parseFloat(oldState.ToBeBudgeted.budgeted) - parseFloat(newSubcategoryObj.Budget),
           activity: oldState.activity
         }
-      }
-    })
+    }))
   }
 
   handleChangeBalance(newTransactionObj) {
-    this.setState((oldState, props) => {
-      return {
+    this.setState((oldState, props) => ({
         ToBeBudgeted: {
           groupName: oldState.groupName,
           budgeted: parseFloat(oldState.ToBeBudgeted.budgeted) + parseFloat(newTransactionObj.Inflow),
           activity: oldState.activity
         },
         balance: parseFloat(oldState.balance) + parseFloat(newTransactionObj.Inflow) - parseFloat(newTransactionObj.Outflow)
-      }
-    })
+    }))
   }
 
   //Description: Called whenever the user inputs data from the modal in the AddCategoryBar component
   handleAddCategory(categoryGroup) {
-    this.setState((prevState, props) => {
-      console.log('prevState' +prevState);
-        return {
+    this.setState((prevState, props) => ({
             categoryGroups: prevState.categoryGroups.concat([
                 {
                     groupName: categoryGroup,
@@ -123,16 +118,14 @@ class App extends Component {
                     subcategories: []
                 }
             ])
-        }
-    });
+    }));
 }
 
 //Description: Concatenates a new subcategory underneath the category group. Called from
 //the CategoryGroups component in MainBudgetBody
 //TODO
 handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
-    this.setState((prevState, props) => {
-        return {
+    this.setState((prevState, props) => ({
             categoryGroups: prevState.categoryGroups.map( (categoryGroup) => {
                 if(categoryGroup.groupName === newSubcategoryCategoryGroup) {
                     this.handleChangeToBeBudgeted(newSubcategoryObj);
@@ -152,8 +145,30 @@ handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
                     return categoryGroup;
                 }
             } )
-        }
-    })
+    }))
+}
+
+handleChangeSubcategoryBalance(newTransactionObj) {
+  this.setState( (oldState, props) => ({
+      categoryGroups: oldState.categoryGroups.map( categoryGroup => {
+        return {
+          groupName: categoryGroup.groupName,
+          budgeted: categoryGroup.budgeted,
+          activity: categoryGroup.activity,
+          subcategories: categoryGroup.subcategories.map( subcategory => {
+            if(subcategory.category === newTransactionObj.value) {
+              return {
+                category: subcategory.category,
+                budgeted: parseFloat(subcategory.budgeted) - parseFloat(newTransactionObj.Outflow) + parseFloat(newTransactionObj.Inflow),
+                activity: parseFloat(subcategory.activity) - parseFloat(newTransactionObj.Outflow)
+            }
+            } else {
+              return subcategory;
+            }
+          } )
+      }
+      } )
+  }) )
 }
 
 //Description: Sets the new state when the user inputs a new transaction in the AddTransactionRow component.
@@ -166,12 +181,11 @@ handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
       Outflow: newTransactionObj.Outflow,
       Inflow: newTransactionObj.Inflow
     }
-    this.setState( (prevState, props) => {
-      return {
-        transactions: this.state.transactions.concat([newTransaction])
-      }
-    });
+    this.setState( (prevState, props) => ({
+        transactions: prevState.transactions.concat([newTransaction])
+    }));
     this.handleChangeBalance(newTransactionObj);
+    this.handleChangeSubcategoryBalance(newTransactionObj);
   }
 
   //Each router allows the user to click a link and change the page from the Account tab to the Budgeting tab
