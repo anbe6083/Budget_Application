@@ -19,6 +19,19 @@ class App extends Component {
       balance: "0.00"
     }
     this.handleChangeBalance = this.handleChangeBalance.bind(this);
+    this.handleChangeToBeBudgeted = this.handleChangeToBeBudgeted.bind(this);
+  }
+
+  handleChangeToBeBudgeted( newSubcategoryObj ) {
+    this.setState((oldState, props) => {
+      return {
+        ToBeBudgeted: {
+          groupName: oldState.groupName,
+          budgeted: parseFloat(oldState.ToBeBudgeted.budgeted) - parseFloat(newSubcategoryObj.Budget),
+          activity: oldState.activity
+        }
+      }
+    })
   }
 
   handleChangeBalance(newTransactionObj) {
@@ -42,7 +55,7 @@ class App extends Component {
           <Route exact path={'/'} render={() => (<Account_Route balance={this.state.balance} handleChangeBalance={this.handleChangeBalance} />)}>
 
           </Route>
-          <Route path={'/budget'} render={() => (<Budget_Route ToBeBudgeted={this.state.ToBeBudgeted} />)}>
+          <Route path={'/budget'} render={() => (<Budget_Route ToBeBudgeted={this.state.ToBeBudgeted} handleChangeToBeBudgeted={this.handleChangeToBeBudgeted} />)}>
           </Route>
         </div>
 

@@ -76,6 +76,7 @@ export default class Budget_Route extends Component {
             return {
                 categoryGroups: prevState.categoryGroups.map( (categoryGroup) => {
                     if(categoryGroup.groupName === newSubcategoryCategoryGroup) {
+                        this.props.handleChangeToBeBudgeted(newSubcategoryObj);
                         return {
                             groupName: categoryGroup.groupName,
                             budgeted: parseFloat(categoryGroup.budgeted) + parseFloat(newSubcategoryObj.Budget),
