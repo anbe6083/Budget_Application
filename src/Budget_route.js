@@ -13,6 +13,7 @@ export default class Budget_Route extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            ToBeBudgeted: 0.00,
             categoryGroups: [
                 {
                     groupName: 'Immediate Obligations',

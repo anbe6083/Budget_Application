@@ -10,6 +10,9 @@ import Budget_Route from './Budget_route';
 class App extends Component {
 constructor(props) {
   super(props);
+  this.state={
+    ToBeBudgeted: 0.00
+  }
   
 }
   //Each router allows the user to click a link and change the page from the Account tab to the Budgeting tab

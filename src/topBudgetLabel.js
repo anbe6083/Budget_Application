@@ -13,10 +13,10 @@ export default class TopBudgetLabel extends Component {
                     Category
                 </div>
                 <div className="budget-col2">
-                    Outflow
+                    Activity
                 </div>
                 <div className="budget-col3">
-                    Inflow
+                    Budgeted
                 </div>
             </div>
         )
