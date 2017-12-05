@@ -57,6 +57,18 @@ Link {
   font-size: 14px;
 }
 
+#addCategoryBtn {
+  cursor: pointer;
+}
+
+#addTransactionBtn {
+  cursor: pointer;
+}
+
+#add-subcategory-btn {
+  cursor: pointer;
+}
+
 .addTransactionRow {
   color: #FFFCF2;
   background: #114B5F;
@@ -110,11 +122,16 @@ Link {
 }
 .budget-col2 {
   display: inline-block;
-  width: 20%;
+  width: 13%;
 }
 .budget-col3 {
   display: inline-block;
-  width: 20%;
+  width: 13%;
+}
+
+.budget-col4 {
+  display: inline-block;
+  width: 13%;
 }
 
 .transaction {

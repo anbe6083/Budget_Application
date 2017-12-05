@@ -49,13 +49,15 @@ class App extends Component {
               
                 {
                     category: 'Food',
-                    budgeted: '500.00',
-                    activity: '300.76'
+                    budgeted: '0.00',
+                    activity: '0.00',
+                    available: '0.00'
                 },
                 {
                     category: 'Rent',
-                    budgeted: '1000.00',
-                    activity: '1000.00'
+                    budgeted: '0.00',
+                    activity: '0.00',
+                    available: '0.00'
                 }
             ]
         },
@@ -66,13 +68,15 @@ class App extends Component {
             subcategories: [
                 {
                     category: 'Car Insurance',
-                    budgeted: '60.00',
-                    activity: '60.00'
+                    budgeted: '00.00',
+                    activity: '0.00',
+                    available: '0.00'
                 },
                 {
                     category: 'Gas',
-                    budgeted: '100.00',
-                    activity: '34.50'
+                    budgeted: '0.00',
+                    activity: '0.00',
+                    available: '0.00'
                 }
             ]
         }

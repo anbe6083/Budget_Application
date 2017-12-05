@@ -67,6 +67,10 @@ export default class CategoryGroups extends Component {
                                         {/* User specified budget */}
                                         {subcategory.budgeted}
                                     </div>
+                                    <div className='budget-col4'>
+                                        {/* User specified budget */}
+                                        {subcategory.available}
+                                    </div>
                                 </div>
                             )
                         })}

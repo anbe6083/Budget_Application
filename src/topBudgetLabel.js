@@ -18,6 +18,9 @@ export default class TopBudgetLabel extends Component {
                 <div className="budget-col3">
                     Budgeted
                 </div>
+                <div className="budget-col4">
+                    Available
+                </div>
             </div>
         )
     }
