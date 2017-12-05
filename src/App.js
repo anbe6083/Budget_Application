@@ -20,10 +20,10 @@ constructor(props) {
     return (
       <Router>
         <div>
-        <Route exact path={'/'} component={Account_Route}>
+        <Route exact path={'/'} render={() => (<Account_Route  />)}>
         
         </Route>
-        <Route path={'/budget'} component={Budget_Route}>
+        <Route path={'/budget'} render={() => (<Budget_Route  />)}>
         </Route>
         </div>
         
