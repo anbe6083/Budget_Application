@@ -15,7 +15,7 @@ constructor(props) {
     return (
       <div className="App">
         <TopBar balance={this.props.balance} label={"Balance"} />
-        <AddTransactionRow handleAddTransaction={this.props.handleAddTransaction} categoryGroups = {this.props.categoryGroups}/>
+        <AddTransactionRow ToBeBudgeted={this.props.ToBeBudgeted} handleAddTransaction={this.props.handleAddTransaction} categoryGroups = {this.props.categoryGroups}/>
         <MainAccountBody transactions={this.props.transactions} />
       </div>
     );

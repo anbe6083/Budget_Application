@@ -41,19 +41,19 @@ class App extends Component {
         }
       ],
       categoryGroups: [
-        
         {
             groupName: 'Immediate Obligations',
             budgeted: '0.00',
             activity: '0.00',
             subcategories: [
+              
                 {
-                    category: 'food',
+                    category: 'Food',
                     budgeted: '500.00',
                     activity: '300.76'
                 },
                 {
-                    category: 'rent',
+                    category: 'Rent',
                     budgeted: '1000.00',
                     activity: '1000.00'
                 }
@@ -85,6 +85,7 @@ class App extends Component {
     this.handleAddCategory = this.handleAddCategory.bind(this);
     this.handleChangeSubcategoryBalance = this.handleChangeSubcategoryBalance.bind(this);
   }
+
 
   handleChangeToBeBudgeted( newSubcategoryObj ) {
     this.setState((oldState, props) => ({
@@ -194,10 +195,11 @@ handleChangeSubcategoryBalance(newTransactionObj) {
       <Router>
         <div>
           <Route exact path={'/'} render={() => (<Account_Route categoryGroups={this.state.categoryGroups} transactions = {this.state.transactions} balance={this.state.balance} 
-          handleChangeBalance={this.handleChangeBalance} handleAddTransaction={this.handleAddTransaction} />)}>
+          handleChangeBalance={this.handleChangeBalance} handleAddTransaction={this.handleAddTransaction}
+          ToBeBudgeted = {this.state.ToBeBudgeted.groupName} />)}>
 
           </Route>
-          <Route path={'/budget'} render={() => (<Budget_Route ToBeBudgeted={this.state.ToBeBudgeted} handleChangeToBeBudgeted={this.handleChangeToBeBudgeted} 
+          <Route path={'/budget'} render={() => (<Budget_Route balance={this.state.ToBeBudgeted.budgeted} ToBeBudgeted={this.state.categoryGroups} handleChangeToBeBudgeted={this.handleChangeToBeBudgeted} 
           categoryGroups={this.state.categoryGroups} handleAddSubcategory={this.handleAddSubcategory} handleAddCategory={this.handleAddCategory} />)}>
           </Route>
         </div>

@@ -13,7 +13,7 @@ export default class AddTransactionRow extends Component {
             Inflow: '0',
             Outflow: '0',
             Category: '',
-            value: 'food'
+            value: 'To Be Budgeted'
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -27,7 +27,7 @@ export default class AddTransactionRow extends Component {
     };
     //handles any input change
     handleChange(event, stateName) {
-        console.log('[event.target.name] ' +[event.target.name]);
+        console.log('[event.target.name] ' + [event.target.name]);
         this.setState({ [event.target.name]: event.target.value });
     }
 
@@ -50,13 +50,14 @@ export default class AddTransactionRow extends Component {
                     Inflow: <input type='text' name="Inflow" onChange={this.handleChange} /><br />
                     Outflow: <input type='text' name="Outflow" onChange={this.handleChange} /><br />
                     <select onChange={this.handleChange} name="value" value={this.state.value} >
+                        <option value={this.props.toBeBudgeted}> To Be Budgeted </option>
                         {this.props.categoryGroups.map(categoryGroup => {
                             console.log(this.props);
-                                return categoryGroup.subcategories.map(subcategory => {
-                                    return (
-                                        <option value={subcategory.category} >{subcategory.category}</option>
-                                    )
-                                })
+                            return categoryGroup.subcategories.map(subcategory => {
+                                return (
+                                    <option value={subcategory.category} >{subcategory.category}</option>
+                                )
+                            })
                         })}
                     </select>
 

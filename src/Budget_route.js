@@ -17,7 +17,7 @@ export default class Budget_Route extends Component {
         console.log('balance is' +this.props.ToBeBudgeted.budgeted)
         return (
             <div>
-                <TopBar label={"To Be Budgeted"} balance={this.props.ToBeBudgeted.budgeted}/>
+                <TopBar label={"To Be Budgeted"} balance={this.props.balance}/>
                 <AddCategoryBar handleAddCategory={this.props.handleAddCategory.bind(this)} />
                 <MainBudgetBody categoryGroups={this.props.categoryGroups} handleAddSubcategory={this.props.handleAddSubcategory} />
             </div>
