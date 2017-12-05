@@ -102,7 +102,7 @@ export default class Budget_Route extends Component {
     render() {
         return (
             <div>
-                <TopBar label={"To Be Budgeted"} />
+                <TopBar label={"To Be Budgeted"} balance={this.state.ToBeBudgeted}/>
                 <AddCategoryBar handleAddCategory={this.handleAddCategory.bind(this)} />
                 <MainBudgetBody categoryGroups={this.state.categoryGroups} handleAddSubcategory={this.handleAddSubcategory} />
             </div>

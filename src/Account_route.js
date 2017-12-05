@@ -11,7 +11,7 @@ class Account_Route extends Component {
 constructor(props) {
   super(props);
   this.state = {
-    balance: "4,000.00",
+    balance: "4000.00",
     transactions: [
       {
         Date: new Date(),
@@ -49,7 +49,12 @@ constructor(props) {
       Outflow: newTransactionObj.Outflow,
       Inflow: newTransactionObj.Inflow
     }
-    this.setState({transactions: this.state.transactions.concat([newTransaction])});
+    this.setState( (prevState, props) => {
+      return {
+        balance: parseFloat(prevState.balance) + parseFloat(newTransaction.Inflow) - parseFloat(newTransactionObj.Outflow),
+        transactions: this.state.transactions.concat([newTransaction])
+      }
+    });
   }
   render() {    
     return (
