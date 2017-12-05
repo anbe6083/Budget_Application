@@ -9,6 +9,7 @@ export default class Balance extends Component {
     }
 
     render() {
+        console.log(this.props.balance);
         return (
             //render the div in TopBar that displays either the balance or To Be Budgeted amount
             <div className="BalanceContainer">

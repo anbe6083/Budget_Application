@@ -13,8 +13,8 @@ export default class Budget_Route extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ToBeBudgeted: 0.00,
             categoryGroups: [
+                
                 {
                     groupName: 'Immediate Obligations',
                     budgeted: '0.00',
@@ -96,13 +96,11 @@ export default class Budget_Route extends Component {
         })
     }
 
-    getSum = (total, num) => {
-        return total + num;
-    }
     render() {
+        console.log('balance is' +this.props.ToBeBudgeted.budgeted)
         return (
             <div>
-                <TopBar label={"To Be Budgeted"} balance={this.state.ToBeBudgeted}/>
+                <TopBar label={"To Be Budgeted"} balance={this.props.ToBeBudgeted.budgeted}/>
                 <AddCategoryBar handleAddCategory={this.handleAddCategory.bind(this)} />
                 <MainBudgetBody categoryGroups={this.state.categoryGroups} handleAddSubcategory={this.handleAddSubcategory} />
             </div>

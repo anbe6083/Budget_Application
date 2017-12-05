@@ -8,10 +8,10 @@ export default class AddTransactionRow extends Component {
         super(props);
         this.state = {
             open: false,
-            date:'',
+            date: '',
             Payee: '',
             Inflow: '',
-            Outflow: '', 
+            Outflow: '',
             Category: ''
         }
         this.handleChange = this.handleChange.bind(this);
@@ -26,7 +26,7 @@ export default class AddTransactionRow extends Component {
     };
     //handles any input change
     handleChange(event, stateName) {
-        this.setState({[event.target.name]: event.target.value});
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleSubmit = () => {
@@ -44,10 +44,16 @@ export default class AddTransactionRow extends Component {
                 <Modal open={open} onClose={this.onCloseModal} >
                     <h2>Add a Transaction</h2>
                     Date: <input type='date' name='date' onChange={this.handleChange} /> <br />
-                    Payee: <input type='text' name="Payee" onChange={this.handleChange}/> <br />
-                    Inflow: <input type='text' name="Inflow" onChange={this.handleChange}/><br />
-                    Outflow: <input type='text' name="Outflow" onChange={this.handleChange}/><br />
-                    Category: <input type='text' name="Category" onChange={this.handleChange}/><br />
+                    Payee: <input type='text' name="Payee" onChange={this.handleChange} /> <br />
+                    Inflow: <input type='text' name="Inflow" onChange={this.handleChange} /><br />
+                    Outflow: <input type='text' name="Outflow" onChange={this.handleChange} /><br />
+                    Category: <input type='text' name="Category" onChange={this.handleChange} /><br />
+                    <select>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </select>
                     <button type='button' onClick={this.handleSubmit}>Submit</button>
                 </Modal>
             </div>
