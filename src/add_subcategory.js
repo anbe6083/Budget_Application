@@ -6,7 +6,7 @@ export default class AddSubcategory extends Component {
         this.state = {
             open: false,
             Subcategory: '',
-            Budget: 0
+            Budget: '0'
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +22,7 @@ export default class AddSubcategory extends Component {
     };
     //Changes the state. event.target.name comes from the 'name' in the input tags in the modal
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ [event.target.name]: event.target.type === 'number' ? parseFloat(event.target.value) : event.target.value });
     }
 
     //Changes the parents state (Parent component is: Budget_Route)

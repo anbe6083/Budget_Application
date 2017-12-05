@@ -21,7 +21,7 @@ export default class CategoryGroups extends Component {
     //Changes the parents state (Parent component is: Budget_Route)
     handleSubmit = (state, categoryGroup) => {
         console.log('categoryGroup' +categoryGroup);
-        this.props.handleAddSubcategory(state, categoryGroup );
+        return this.props.handleAddSubcategory(state, categoryGroup );
         this.onCloseModal();
     }
 
@@ -29,6 +29,7 @@ export default class CategoryGroups extends Component {
         //categoryGroups is from the parent component Budget_Route. It is part of the state. 
         const categoryGroups = this.props.categoryGroups;
         const categoryGroupsArr = categoryGroups.map((categoryGroup) => {
+            console.log(categoryGroup);
             return (
                 <div className = 'categoryGroupContainer' key={categoryGroup.groupName}>
                     <div className="categoryGroupDiv" >

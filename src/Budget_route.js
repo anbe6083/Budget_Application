@@ -16,36 +16,36 @@ export default class Budget_Route extends Component {
             categoryGroups: [
                 {
                     groupName: 'Immediate Obligations',
-                    budgeted: '5,000.00',
-                    activity: '3,275.76',
+                    budgeted: '0.00',
+                    activity: '0.00',
                     subcategories: [
-                        {
-                            category: 'food',
-                            budgeted: '500.00',
-                            activity: '300.76'
-                        },
-                        {
-                            category: 'rent',
-                            budgeted: '1,000.00',
-                            activity: '1,000.00'
-                        }
+                        // {
+                        //     category: 'food',
+                        //     budgeted: '500.00',
+                        //     activity: '300.76'
+                        // },
+                        // {
+                        //     category: 'rent',
+                        //     budgeted: '1000.00',
+                        //     activity: '1000.00'
+                        // }
                     ]
                 },
                 {
                     groupName: 'True Expenses',
-                    budgeted: '2,000.00',
-                    activity: '1,000.33',
+                    budgeted: '0.00',
+                    activity: '0.00',
                     subcategories: [
-                        {
-                            category: 'Car Insurance',
-                            budgeted: '60.00',
-                            activity: '60.00'
-                        },
-                        {
-                            category: 'Gas',
-                            budgeted: '100.00',
-                            activity: '34.50'
-                        }
+                        // {
+                        //     category: 'Car Insurance',
+                        //     budgeted: '60.00',
+                        //     activity: '60.00'
+                        // },
+                        // {
+                        //     category: 'Gas',
+                        //     budgeted: '100.00',
+                        //     activity: '34.50'
+                        // }
                     ]
                 }
             ]
@@ -59,8 +59,8 @@ export default class Budget_Route extends Component {
                 categoryGroups: prevState.categoryGroups.concat([
                     {
                         groupName: categoryGroup,
-                        budgeted: '0.00',
-                        activity: '0.00',
+                        budgeted: 0.00,
+                        activity: 0.00,
                         subcategories: []
                     }
                 ])
@@ -71,21 +71,19 @@ export default class Budget_Route extends Component {
     //the CategoryGroups component in MainBudgetBody
     //TODO
     handleAddSubcategory(newSubcategoryObj, newSubcategoryCategoryGroup) {
-        console.log('newSubcategoryCategoryGroup ' +newSubcategoryCategoryGroup);
-        return this.setState((prevState, props) => {
+        this.setState((prevState, props) => {
             return {
                 categoryGroups: prevState.categoryGroups.map( (categoryGroup) => {
                     if(categoryGroup.groupName === newSubcategoryCategoryGroup) {
-                        console.log('categoryGroup.groupName ' +categoryGroup.groupName);
                         return {
                             groupName: categoryGroup.groupName,
-                            budgeted: categoryGroup.budgeted,
-                            activity: categoryGroup.groupName.activity,
+                            budgeted: parseFloat(categoryGroup.budgeted) + parseFloat(newSubcategoryObj.Budget),
+                            activity: parseFloat(categoryGroup.activity),
                             subcategories: categoryGroup.subcategories.concat(
                                 {
                                     category: newSubcategoryObj.Subcategory,
                                     budgeted: newSubcategoryObj.Budget,
-                                    activity: '0.00'
+                                    activity: 0.00
                                 }
                             )
                         }
@@ -95,10 +93,11 @@ export default class Budget_Route extends Component {
                 } )
             }
         })
-        console.log('state is now: ' +this.state);
     }
 
-
+    getSum = (total, num) => {
+        return total + num;
+    }
     render() {
         return (
             <div>
