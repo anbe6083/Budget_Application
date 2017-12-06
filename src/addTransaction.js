@@ -49,7 +49,7 @@ export default class AddTransactionRow extends Component {
                     Payee: <input type='text' name="Payee" onChange={this.handleChange} /> <br />
                     Inflow: <input type='text' name="Inflow" onChange={this.handleChange} /><br />
                     Outflow: <input type='text' name="Outflow" onChange={this.handleChange} /><br />
-                    <select onChange={this.handleChange} name="value" value={this.state.value} >
+                    Category: <select onChange={this.handleChange} name="value" value={this.state.value} >
                         <option value={this.props.toBeBudgeted}> To Be Budgeted </option>
                         {this.props.categoryGroups.map(categoryGroup => {
                             console.log(this.props);
@@ -59,7 +59,7 @@ export default class AddTransactionRow extends Component {
                                 )
                             })
                         })}
-                    </select>
+                    </select> <br />
 
                     <button type='button' onClick={this.handleSubmit}>Submit</button>
                 </Modal>

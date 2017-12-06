@@ -20,7 +20,7 @@ export default class AddCategoryBar extends Component {
     handleChange(event) {
         console.log(this.state.category_group);
         this.setState({[event.target.name]: event.target.value});
-      }
+      }w
 
     onOpenModal = () => {
         console.log('open modal');
