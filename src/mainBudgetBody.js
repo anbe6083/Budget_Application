@@ -14,7 +14,7 @@ export default class MainBudgetBody extends Component {
         return (
             <div className="mainBody">
                 <TopBudgetLabel />
-                <CategoryGroups categoryGroups={this.props.categoryGroups} handleAddSubcategory={this.props.handleAddSubcategory}/>
+                <CategoryGroups returnSubcategoryDropdown={this.props.returnSubcategoryDropdown} categoryGroups={this.props.categoryGroups} handleAddSubcategory={this.props.handleAddSubcategory}/>
             </div>
         )
     }

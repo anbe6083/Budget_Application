@@ -132,7 +132,9 @@ Link {
 .budget-col4 {
   display: inline-block;
   width: 13%;
+  cursor: pointer;
 }
+
 
 .transaction {
   border-bottom: 1px solid #4A4A4A;

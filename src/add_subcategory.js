@@ -36,7 +36,7 @@ export default class AddSubcategory extends Component {
         const { open } = this.state;
         return (
             <div className='add-subcategory'>
-                <button type='button' idName='add-subcategory-btn' onClick={this.onOpenModal}> + </button>
+                <button type='button' onClick={this.onOpenModal}> + </button>
                 <Modal open={open} onClose={this.onCloseModal} >
                     <h2>Add a New Subcategory </h2>
                     Subcategory: <input type='text' name='Subcategory' onChange={this.handleChange} /> <br />
