@@ -143,7 +143,8 @@ class App extends Component {
               {
                 category: newSubcategoryObj.Subcategory,
                 budgeted: newSubcategoryObj.Budget,
-                activity: 0.00
+                activity: 0.00,
+                available: newSubcategoryObj.Budget
               }
             )
           }
@@ -177,6 +178,8 @@ class App extends Component {
       })
     }))
   }
+
+
 
   //Description: Sets the new state when the user inputs a new transaction in the AddTransactionRow component.
   //Takes input from the AddTransactionRow modal
