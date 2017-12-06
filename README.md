@@ -9,6 +9,8 @@ Created by Andrew Berumen
 
 This is a work in progress application.
 
+0. This project was created using `create-react-apps`. If `yarn` isn't installed on your computer, [download it here.](https://yarnpkg.com/en/)
+
 1. To demo, clone the repo.
 
 2. `yarn` to install dependencies
